@@ -1,6 +1,16 @@
 #include <array>
-#include <string>
+#include <bits/stdc++.h>
 #include <iostream>
+#include <string>
+
+using namespace std;
+
+template <typename Container> void shuffle_array(Container &arr) {
+  std::random_device rd;
+  std::mt19937 gen(rd());
+  std::shuffle(arr.begin(), arr.end(), gen);
+}
+
 
 class Card {
 public:
@@ -26,6 +36,8 @@ int main() {
       deck[index++] = card;
     }
   }
+
+  shuffle_array(deck);
 
   for (const Card &card : deck) {
     std::cout << card.name << std::endl;
